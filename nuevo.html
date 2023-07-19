@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Página Responsiva con Fondo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('c:/home/rifa.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #numero-aleatorio {
+      padding: 100px 0;
+      font-size: 200px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 150px;
+      text-align: center;
+      color: #000;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  
+    <div id="numero-aleatorio"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    var contador = 0;
+
+    $('body').click(function() {
+      if (contador < 100) {
+        for (var i = 0; i < 50; i++) {
+          (function(i) {
+            setTimeout(function() {
+              numeroAleatorio(1, 4000);
+            }, 100 * i);
+          })(i);
+        }
+        contador++;
+      }
+    });
+
+    function numeroAleatorio(min, max) {
+      var num = Math.floor(Math.random() * (max - min + 1) + min);
+      $('#numero-aleatorio').text(num);
+    }
+  </script>
+</body>
+</html>
